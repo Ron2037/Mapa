@@ -1,0 +1,266 @@
+/* Variables  */
+:root{
+    --white: #ffffff;
+    --black: #3C4043;
+    --lightgrey: #F4F5F7;
+    --darkgrey: #ADADAD;
+    --yellow: #FEDD00;
+    --softyellow: #FEFBEB;
+    --lightblue: #0075C9;
+    --softblue: #F3FAFF;
+    --darkblue: #004F87;
+    --green: #008D3C;
+    
+}
+/* Espciados personalizados  */
+.h-1px{
+    height: 1px;
+}
+.h-60{
+    max-height: 65%;
+    height: 65%;
+}
+.h-35{
+    min-height: fit-content;
+    height: 30%;
+}
+.h-5{
+   height: 5%; 
+}
+.h-fit{
+    height: fit-content;
+}
+.mw-30{
+    min-width: 30%;
+}
+/* Estados generales de un proceso */
+.estado-proceso, .estado-ejecutado, .estado-dinero, .estado-tierra{
+    width: fit-content;
+    height: 25px;
+    font-size: x-small;
+}
+.estado-proceso{
+    color: var(--white);
+    background-color: var(--yellow);
+}
+.estado-ejecutado{
+    color: var(--white);
+    background-color: var(--lightblue);
+}
+.estado-dinero{
+    color: var(--darkgrey);
+    background-color: var(--softyellow);
+}
+.estado-tierra{
+    color: var(--darkgrey);
+    background-color: var(--softblue);
+}
+/* Fondos y colores */
+.bg-blanco{
+    background-color: var(--white);
+}
+.bg-azulsuave{
+    background-color: var(--softblue);
+}
+.bg-gris{
+    background-color: var(--lightgrey); 
+    /* background-image: url(../Content/ejemploFondo.png); */
+}
+.color-lightblue{
+    color: var(--lightblue);
+}
+.color-blue{
+    color : var(--darkblue)
+}
+.color-yellow{
+    color: var(--yellow);
+}
+/* Ajustes pequeños  */
+a{
+    color: var(--black);
+    text-decoration: none;
+}
+html, body{
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--black);
+}
+li{
+    list-style: none;
+}
+.resultsCount{
+    font-size: smaller;
+}
+/* Menu lateral con sus botones */
+.menu-busqueda{
+    z-index: 1;
+}
+.rightpanel{
+    width: 0%;
+    height: 100%;
+    transition: 0.6s;
+    box-sizing:border-box;
+    overflow-x: hidden;
+}
+.btn-colapser{
+    width: 1rem;
+    height: 4rem;
+    padding: 1rem;
+    border-radius: 0 20px 20px 0;
+} 
+.pagination-button{
+    border: 0;
+    border-radius: 8px; 
+    background: none;
+}
+.pagination-button:hover:not([disabled]){
+    background: var(--softblue);
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 1px 4px 0px;
+}
+.pagination-button:disabled{
+    cursor: not-allowed;
+}
+/* Desplegable detalles */ 
+.detailContainer{
+    height: fit-content;
+    z-index: 3;
+}
+.detailContainer .details{
+    border-radius: 20px 20px 0px 0px;
+}
+.btn-colapser-vertical{
+    font-size: 0.7rem;
+    padding: 0.25rem 1rem;
+    width: fit-content;
+    border-radius: 20px 20px 0 0;
+}
+.detailItem{
+    border-radius: 5px  5px 0px 0px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+/* Mapa  */
+#dvMap{
+    z-index: 0;
+}
+/* Responsivo  */
+@media screen and (min-width: 320px){
+    .h-35{
+        height: fit-content;
+    }
+    .img_logo{
+        width: 200px;
+        height: 104px;
+    }
+    header{
+        height: fit-content;
+    }
+    main{
+        height: 86%;
+    }
+    .menu-busqueda{
+        width: 100%;
+    }
+    .rightpanel{
+        width: 100%;
+    }
+    .btn-colapser{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        border-top: 1px;
+    }
+    .detailContainer{
+        width: 100%;
+        position: fixed;
+        height: fit-content;
+    }
+    .detailContainer_btn{
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 768px){
+    .h-60{
+        height: 63%;
+    }
+    .h-35{
+        height: fit-content;
+        min-height: 32%;
+    }
+    .img_logo{
+        width: 160px;
+        height: 83px;
+    }
+    header{
+        min-height: 90px;
+        height: 10%;
+    }
+    main{
+        height: 90%;
+    }
+    .menu-busqueda{
+        max-width: 400px;
+    }
+    .btn-colapser{
+        position: initial;
+        width: 1rem;
+    }
+}
+@media screen and (min-width: 1024px){
+    .img_logo{
+        width: 160px;
+        height: 83px;
+    }
+    header{
+        min-height: 90px;
+        height: 10%;
+    }
+    main{
+        height: 90%;
+    }
+    .menu-busqueda{
+        max-width: 390px;
+    }
+    .btn-colapser{
+        position: initial;
+        width: 1rem;
+    }
+    .detailContainer{
+        width: 584px;
+    }
+    .detailContainer.calc{
+        right: calc(50% - 490px);
+    }
+    .detailContainer_btn{
+        justify-content: end;
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width: 1250px) {
+    .detailContainer{
+        width: 680px;
+    }
+    .detailContainer.calc{
+        right: calc(50% - 530px);
+    }
+}
+@media screen and (min-width: 1300px) {
+    .detailContainer{
+        width: 850px;
+    }
+    .detailContainer.calc{
+        right: calc(50% - 635px);
+    }
+}
+@media screen and (min-width: 1400px) {
+    .detailContainer{
+        width: 950px;
+    }
+    .detailContainer.calc{
+        right: calc(50% - 685px);
+    }
+}
+@media screen and (min-width: 2560px){
+    .img_logo{
+        width: 200px;
+        height: 104px;
+    }
+}
