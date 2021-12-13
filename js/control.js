@@ -67,7 +67,7 @@ function mostrarDetalles(){
     } 
     // Cambia el icono y el texto del boton 
     btnColapser.innerHTML = "Ver más";
-    btnColapser.innerHTML += '<span class="ms-2"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg></span>';
+    btnColapser.innerHTML += '<span class="ml-2"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg></span>';
     
 }
 // Amplia el menu Detalles
@@ -106,7 +106,7 @@ function mostrarMasDetalles(){
     }
     // Cambia el icono y el texto del boton 
     btnColapser.innerHTML = "Ver menos";
-    btnColapser.innerHTML += '<span class="ms-2"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></span>';
+    btnColapser.innerHTML += '<span class="ml-2"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></span>';
     
 }
 // Oculta el menu Detalles
@@ -236,14 +236,20 @@ setupPagination(list_items, rows);
 jQuery.expr[':'].contains = function(a, i, m) { 
     // Transforma el texto del input en uppercase al igual que los elementos de busqueda
     return jQuery(a).text().toUpperCase()
-        .indexOf(m[3].toUpperCase()) >= 0;
-  };
+     .indexOf(m[3].toUpperCase()) >= 0;
+};
 $('#search').keyup(function (){
     $('.resultsToSort').removeClass('d-none');
-    // $('.resultsToSort').removeAttribute('hidden','');
     var filter = $(this).val();
+
+    const arr = filter.split(" ");
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+
+    }
+    filter = arr.join(" ");
     // Busca las coincidencias en los numeros de predio
-        // $('.resultsConatiner').find('.numPredio:not(:contains("'+filter+'"))').parent().parent().parent().parent().parent().addClass('d-none');
+    // $('.resultsConatiner').find('.numPredio:not(:contains("'+filter+'"))').parent().parent().parent().parent().parent().addClass('d-none');
     // Busca las coincidencias en las constructoras
         $('.resultsConatiner').find('.constructorName:not(:contains("'+filter+'"))').parent().parent().parent().parent().addClass('d-none');
     // Busca las coincidencias en los numeros de predio y en las constructoras
@@ -263,7 +269,7 @@ $('#search').keyup(function (){
     // Si no hay filtro de busqueda, se muestran todos los resultados
     if (filter == "") {
         buttonNext.removeAttribute("disabled", "");
-        changePage(list_items, rows, current_page);
+        changePage(list_items, rows, 1);
     }
 });
 // Mapa google maps
